@@ -21,3 +21,4 @@ migrate:
 install:
 	make build
 	make composer-install
+	make migrate
