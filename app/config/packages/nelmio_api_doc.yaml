@@ -1,0 +1,13 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: SW Planets
+            description: Best Star Wars planets repo
+            version: 1.0.0
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api/ # Accepts routes under /api except /api/doc
+    models:
+        names:
+            - { alias: PlanetResponse,        type: App\Dto\Response\Planet\DtoResponsePlanet}
+            - { alias: PlanetRequest,         type: App\Dto\Request\Planet\DtoRequestPlanet}

@@ -10,7 +10,6 @@ class DtoResponsePlanetNormalizer implements NormalizerInterface
     
     public function normalize($object, $format = null, array $context = array())
     {
-
         return [
             "data" => [
                 [
@@ -21,6 +20,7 @@ class DtoResponsePlanetNormalizer implements NormalizerInterface
                         "rotation_period" => $object->rotation_period,
                         "orbital_period" => $object->orbital_period,
                         "diameter" => $object->diameter,
+                        "films_count" => $object->films_count,
                         "created" => $object->created,
                         "edited" => $object->edited,
                     ]
