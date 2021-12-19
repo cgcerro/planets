@@ -8,3 +8,6 @@ Symfony API exercise
 ```bash
 make install
 ```
+
+## Documentation
+http://localhost/apidoc
