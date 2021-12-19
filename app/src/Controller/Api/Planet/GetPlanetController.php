@@ -6,15 +6,20 @@ use App\Dto\Response\Planet\DtoResponsePlanet;
 use App\Service\Planet\GetPlanetService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\Annotations\QueryParam;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use OpenApi\Annotations as OA;
 
 class GetPlanetController extends AbstractFOSRestController
 {
     /**
      * @Rest\Get(path="/planets/{planet}", name="planet_get")
-     * @QueryParam(name="planet", requirements="\d+", default="1", description="Planet Id.")
      * @Rest\View(serializerGroups={"DtoResponsePlanet"}, serializerEnableMaxDepthChecks=false)
      * 
+     * @OA\Response(
+     *     response=200,
+     *     description = "Get planet info",
+     *     @Model(type=DtoResponsePlanet::class)
+     * )
      * @param int $id | planet id
      * @param GetPlanetService $getPlanetService | Planet Service
      */
