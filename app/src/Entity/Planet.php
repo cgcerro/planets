@@ -58,7 +58,7 @@ class Planet
 
     public function setId(int $id): ?int
     {
-        return $this->id =  $id;
+        return $this->id = $id;
     }
 
     public function getName(): ?string
@@ -132,7 +132,6 @@ class Planet
 
         return $this;
     }
-
 
     public function getEdited(): ?\DateTimeInterface
     {

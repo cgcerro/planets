@@ -1,23 +1,17 @@
 <?php
-/**
-* App\Provider\Swapi\GetPlanetSwapiClient | Get planet from swapi.
-* @category service
-* @author cgcerro <cgcerro@gmail.com>
-*/
 
 namespace App\Provider\Swapi;
 
-use App\Provider\Swapi\SwapiClient;
 use stdClass;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class GetPlanetSwapiClient extends SwapiClient
-{ 
+{
     /**
-     * __invoke
+     * __invoke.
      *
-     * @param  mixed $planetId
-     * @return stdClass
+     * @param mixed $planetId
+     *
      * @throws Exception
      */
     public function __invoke(int $planetId): stdClass
@@ -29,7 +23,7 @@ class GetPlanetSwapiClient extends SwapiClient
 
         $statusCode = $response->getStatusCode();
 
-        if ($statusCode !== 200) {
+        if (200 !== $statusCode) {
             throw new HttpException(400, 'Planet not found');
         }
 

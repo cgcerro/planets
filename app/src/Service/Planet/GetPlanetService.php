@@ -2,7 +2,9 @@
 
 /**
  * App\Service\Planet | Get planet service.
+ *
  * @category service
+ *
  * @author cgcerro <cgcerro@gmail.com>
  */
 
@@ -13,31 +15,29 @@ use App\Dto\Transformer\Response\Planet\SwApiProviderPlanetDtoTransformerRespons
 use App\Provider\Swapi\GetPlanetSwapiClient;
 
 class GetPlanetService
-{    
+{
     private GetPlanetSwapiClient $getPlanetSwapiClient;
     private SwApiProviderPlanetDtoTransformerResponse $planetDtoTransformerResponse;
-        
+
     /**
-     * __construct
+     * __construct.
      *
-     * @param  GetPlanetSwapiClient $getPlanetSwapiClient
      * @return void
      */
-    public function __construct(GetPlanetSwapiClient $getPlanetSwapiClient, SwApiProviderPlanetDtoTransformerResponse $planetDtoTransformerResponse)
-    {
+    public function __construct(
+        GetPlanetSwapiClient $getPlanetSwapiClient,
+        SwApiProviderPlanetDtoTransformerResponse $planetDtoTransformerResponse
+    ) {
         $this->getPlanetSwapiClient = $getPlanetSwapiClient;
         $this->planetDtoTransformerResponse = $planetDtoTransformerResponse;
     }
 
     /**
-     * __invoke
-     *
-     * @param  int $planetId
-     * @return DtoResponsePlanet
+     * __invoke.
      */
-    public function __invoke(int $planetId) : DtoResponsePlanet
+    public function __invoke(int $planetId): DtoResponsePlanet
     {
-        $apiResponse =  ($this->getPlanetSwapiClient)($planetId);
+        $apiResponse = ($this->getPlanetSwapiClient)($planetId);
 
         return $this->planetDtoTransformerResponse->transformFromObject($apiResponse);
     }
