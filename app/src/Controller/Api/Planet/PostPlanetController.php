@@ -15,9 +15,13 @@ use OpenApi\Annotations as OA;
 class PostPlanetController extends AbstractFOSRestController
 {
     /**
+     * Create planet
+     * 
      * @Rest\Post(path="/planet", name="planet_post")
      * @Rest\View(serializerGroups={"DtoResponsePlanet"}, serializerEnableMaxDepthChecks=false)
      * @ParamConverter("planetRequest", converter="fos_rest.request_body")
+     * 
+     * @OA\Tag(name="Planets")
      * 
      * @OA\Response(
      *     response=200,

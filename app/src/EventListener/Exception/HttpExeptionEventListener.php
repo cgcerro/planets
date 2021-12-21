@@ -17,7 +17,7 @@ class HttpExeptionEventListener
         $request   = $event->getRequest();
         $exception = $event->getThrowable();
         
-        if (strpos($request->getPathInfo(), '/api/') == 0) {
+        if (strpos($request->getPathInfo(), '/api/') === 0) {
             $response = $this->createApiResponse($exception);
             $event->setResponse($response);
         }
