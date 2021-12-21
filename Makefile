@@ -22,3 +22,6 @@ install:
 	make build
 	make composer-install
 	make migrate
+
+check-standards:
+	${DOCKER_EXEC} ${MAIN_CONTAINER} /bin/bash -c "cd app && php_cs --standard=PSR12 src/"

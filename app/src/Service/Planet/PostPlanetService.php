@@ -2,7 +2,9 @@
 
 /**
  * App\Service\Planet | Get planet service.
+ *
  * @category service
+ *
  * @author cgcerro <cgcerro@gmail.com>
  */
 
@@ -17,35 +19,33 @@ use DateTime;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class PostPlanetService
-{    
+{
     private PlanetRepository $planetRepository;
     private EntityPlanetDtoTransformerResponse $planetDtoTransformerResponse;
-        
+
     /**
-     * __construct
+     * __construct.
      *
      * @return void
      */
     public function __construct(
         PlanetRepository $planetRepository,
-        EntityPlanetDtoTransformerResponse $planetDtoTransformerResponse)
-    {
+        EntityPlanetDtoTransformerResponse $planetDtoTransformerResponse
+    ) {
         $this->planetRepository = $planetRepository;
         $this->planetDtoTransformerResponse = $planetDtoTransformerResponse;
     }
 
     /**
-     * __invoke
-     *
-     * @return DtoResponsePlanet
+     * __invoke.
      */
-    public function __invoke(DtoRequestPlanet $planetRequest) : DtoResponsePlanet
+    public function __invoke(DtoRequestPlanet $planetRequest): DtoResponsePlanet
     {
         $planet = $this->planetRepository->findOneBy(['id' => $planetRequest->id]);
         if ($planet) {
             throw new HttpException(400, 'Planet already exists');
         }
-        
+
         $planet = new Planet();
         $planet->setId($planetRequest->id);
         $planet->setName($planetRequest->name);

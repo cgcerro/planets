@@ -4,7 +4,6 @@ namespace App\Dto\Transformer\Response\Planet;
 
 use App\Dto\Response\Planet\DtoResponsePlanet;
 use App\Dto\Transformer\Response\AbstractDtoTransformerResponse;
-use App\Entity\Planet;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class EntityPlanetDtoTransformerResponse extends AbstractDtoTransformerResponse
@@ -16,7 +15,7 @@ class EntityPlanetDtoTransformerResponse extends AbstractDtoTransformerResponse
         $this->router = $router;
     }
 
-    public function transformFromObject(Object $object): DtoResponsePlanet
+    public function transformFromObject(object $object): DtoResponsePlanet
     {
         $dto = new DtoResponsePlanet();
 
@@ -26,8 +25,8 @@ class EntityPlanetDtoTransformerResponse extends AbstractDtoTransformerResponse
         $dto->orbital_period = $object->getOrbitalPeriod();
         $dto->diameter = $object->getDiameter();
         $dto->films_count = $object->getFilmsCount();
-        $dto->created = $object->getCreated()->format("Y-m-d H:i:s e");
-        $dto->edited = $object->getEdited()->format("Y-m-d H:i:s e");
+        $dto->created = $object->getCreated()->format('Y-m-d H:i:s e');
+        $dto->edited = $object->getEdited()->format('Y-m-d H:i:s e');
         $dto->url = $this->router->generate('planet_get', [
             'planet' => $object->getId(),
             ], UrlGeneratorInterface::ABSOLUTE_URL);
