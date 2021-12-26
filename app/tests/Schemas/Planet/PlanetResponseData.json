@@ -1,0 +1,33 @@
+{
+	"type": "object",
+    "properties": {
+      "type": "string",
+      "id": "integer",
+      "attributes": {
+          "type": "object",
+          "properties": {
+            "name": "string",
+            "rotation_period": "integer",
+            "orbital_period": "integer",
+            "diameter": "integer",
+            "films_count": "integer",
+            "created": "string",
+            "edited": "string"
+          },
+          "required": [
+              "name",
+              "rotation_period",
+              "orbital_period",
+              "diameter",
+              "films_count",
+              "created",
+              "edited"
+          ]
+      }
+    },
+    "required": [
+        "type",
+        "id",
+        "attributes"
+    ]
+}
