@@ -22,7 +22,7 @@ class HttpExceptionNormalizer implements NormalizerInterface
         return $ret;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return $data instanceof HttpException;
     }

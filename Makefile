@@ -25,3 +25,9 @@ install:
 
 check-standards:
 	${DOCKER_EXEC} ${MAIN_CONTAINER} /bin/bash -c "cd app && php_cs --standard=PSR12 src/"
+
+load-fixtures:
+	${DOCKER_EXEC} ${MAIN_CONTAINER} /bin/bash -c "cd app && php bin/console doctrine:fixtures:load"
+
+run-tests:
+	${DOCKER_EXEC} ${MAIN_CONTAINER} /bin/bash -c "cd app && php ./vendor/bin/phpunit"

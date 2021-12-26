@@ -1,0 +1,18 @@
+{
+	"type": "object",
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "$ref": "Planet/PlanetResponseData.json"
+            }
+        },
+        "links": {
+            "type": "object",
+            "properties": {
+                "self": "string"
+            }
+        }
+    }
+  }
+  
